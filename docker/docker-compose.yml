@@ -1,0 +1,41 @@
+name: '519-2-0-telemedicine'
+services:
+ mysql:
+  image: mysql:8.0.33
+  env_file:
+   - ./envs/mysql.env
+  ports:
+   - 3307:3306
+  volumes:
+      - mysql_data:/var/lib/mysql
+  user: $UID:$GID
+ adminer:
+  image: adminer:4.8.1-standalone
+  env_file:
+   - ./envs/adminer.env
+  ports:
+   - 8001:8080
+ mailhog:
+  image: mailhog/mailhog:v1.0.1
+  platform: linux/amd64
+  ports:
+   - 1025:1025
+   - 8003:8025
+ app:
+  build:
+   context: ..
+   dockerfile: ./docker/files/dev.app.dockerfile
+   args:
+    UID: $UID
+    GID: $GID
+  volumes:
+   - ../:/var/www/html/
+  env_file:
+   - ./envs/app.env
+  ports:
+  - 5173:5173
+  - 8000:80
+
+volumes:
+  mysql_data:
+    driver: local
