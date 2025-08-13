@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserIndex;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
@@ -16,6 +17,7 @@ Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
     Route::get("users", UserIndex::class)->name("user.index");
+    Route::get("users/create", UserCreate::class)->name('user.create');
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
