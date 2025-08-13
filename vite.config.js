@@ -13,6 +13,11 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
-        cors: true,
+        host: '0.0.0.0',  // listen on all interfaces inside container
+        port: 5173,
+        strictPort: true,
+        hmr: {
+            host: 'localhost', // or your host machine's IP if not localhost
+        },
     },
 });
