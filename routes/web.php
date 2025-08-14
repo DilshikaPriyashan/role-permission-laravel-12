@@ -1,5 +1,9 @@
 <?php
 
+use App\Livewire\Products\ProductCreate;
+use App\Livewire\Products\ProductEdit;
+use App\Livewire\Products\ProductIndex;
+use App\Livewire\Products\ProductShow;
 use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserEdit;
 use App\Livewire\Users\UserIndex;
@@ -22,6 +26,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get("users/create", UserCreate::class)->name('user.create');
     Route::get("users/{id}/edit", UserEdit::class)->name('user.edit');
     Route::get("users/{id}/", UserShow::class)->name("user.show");
+
+    Route::get("products", ProductIndex::class)->name("product.index");
+    Route::get("products/create", ProductCreate::class)->name('product.create');
+    Route::get("products/{id}/edit", ProductEdit::class)->name('product.edit');
+    Route::get("products/{id}/", ProductShow::class)->name("product.show");
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
