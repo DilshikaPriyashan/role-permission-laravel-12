@@ -3,6 +3,7 @@
 use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserEdit;
 use App\Livewire\Users\UserIndex;
+use App\Livewire\Users\UserShow;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -20,6 +21,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("users", UserIndex::class)->name("user.index");
     Route::get("users/create", UserCreate::class)->name('user.create');
     Route::get("users/{id}/edit", UserEdit::class)->name('user.edit');
+    Route::get("users/{id}/", UserShow::class)->name("user.show");
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');
