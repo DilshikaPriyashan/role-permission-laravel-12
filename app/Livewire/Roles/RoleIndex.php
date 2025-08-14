@@ -9,7 +9,7 @@ class RoleIndex extends Component
 {
     public function render()
     {
-        $roles = Role::all();
+        $roles = Role::with('permissions')->get();
         return view('livewire.roles.role-index', compact('roles'));
     }
 }

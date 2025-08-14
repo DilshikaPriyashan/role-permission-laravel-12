@@ -67,10 +67,10 @@
                                 @endforeach
                             @endif
                         </td>
-                        {{-- <td class="px-6 py-4">
+                        <td class="px-6 py-4">
                             <a href="{{ route('role.edit', $role->id) }}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</a>
-                            <button wire:click="delete({{ $role->id }})"
+                            {{-- <button wire:click="delete({{ $role->id }})"
                                 wire:confirm="Are you sure to remove this role?"
                                 class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
                                 Delete
@@ -78,8 +78,8 @@
                             <a href="{{ route('role.show', $role->id) }}"
                                 class="font-medium text-green-600 dark:text-green-500 hover:underline">
                                 Show
-                            </a>
-                        </td> --}}
+                            </a> --}}
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
