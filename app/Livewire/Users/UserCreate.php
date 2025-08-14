@@ -18,12 +18,11 @@ class UserCreate extends Component
 
     public function submit()
     {
-        $data = $this->validate([
+        $this->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'required|same:confirm_password',
         ]);
-        // dd($data);
 
         User::create([
             'name' => $this->name,
