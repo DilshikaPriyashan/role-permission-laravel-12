@@ -37,6 +37,6 @@ class RoleCreate extends Component
         $role->syncPermissions($this->permissions);
 
 
-        return to_route('product.index')->with('success', 'Product Create.');
+        return to_route('role.index')->with('success', 'Product Create.');
     }
 }

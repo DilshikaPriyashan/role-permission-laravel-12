@@ -26,4 +26,22 @@ class RoleEdit extends Component
         return view('livewire.roles.role-edit');
     }
 
+    public function submit()
+    {
+
+        $this->validate([
+            'name' => 'required|unique:roles,name,' . $this->role->id,
+            'permissions' => 'required'
+        ]);
+
+        $this->role->name = $this->name;
+ 
+        $this->role->save();
+
+        $this->role->syncPermissions($this->permissions);
+
+
+        return to_route('role.index')->with('success', 'Role updated.');
+    }
+
 }

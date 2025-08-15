@@ -12,4 +12,12 @@ class RoleIndex extends Component
         $roles = Role::with('permissions')->get();
         return view('livewire.roles.role-index', compact('roles'));
     }
+
+    public function delete($id)
+    {
+        $role = Role::find($id);
+        $role->delete();
+
+        session()->flash("success", "Role Deleted.");
+    }
 }
