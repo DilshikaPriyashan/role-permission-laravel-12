@@ -7,6 +7,7 @@ use App\Livewire\Products\ProductShow;
 use App\Livewire\Roles\RoleCreate;
 use App\Livewire\Roles\RoleEdit;
 use App\Livewire\Roles\RoleIndex;
+use App\Livewire\Roles\RoleShow;
 use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserEdit;
 use App\Livewire\Users\UserIndex;
@@ -38,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("roles", RoleIndex::class)->name("role.index");
     Route::get("roles/create", RoleCreate::class)->name("role.create");
     Route::get("roles/{id}/edit", RoleEdit::class)->name("role.edit");
+    Route::get("roles/{id}/", RoleShow::class)->name("role.show");
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

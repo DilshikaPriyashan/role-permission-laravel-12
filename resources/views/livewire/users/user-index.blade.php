@@ -48,6 +48,7 @@
                     <th scope="col" class="px-6 py-3">ID</th>
                     <th scope="col" class="px-6 py-3">Name</th>
                     <th scope="col" class="px-6 py-3">Email</th>
+                    <th scope="col" class="px-6 py-3">Roles</th>
                     <th scope="col" class="px-6 py-3">Action</th>
                 </tr>
             </thead>
@@ -61,6 +62,13 @@
                         </th>
                         <td class="px-6 py-4">{{ $user->name }}</td>
                         <td class="px-6 py-4">{{ $user->email }}</td>
+                            <td class="px-6 py-4">
+                            @if ($user->roles)
+                                @foreach ($user->roles as $role)
+                                    <flux:badge>{{ $role->name }}</flux:badge>
+                                @endforeach
+                            @endif
+                        </td>
                         <td class="px-6 py-4">
                             <a href="{{ route('user.edit', $user->id) }}"
                                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-4">Edit</a>

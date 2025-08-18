@@ -75,10 +75,10 @@
                                 class="font-medium text-red-600 dark:text-red-500 hover:underline mr-4">
                                 Delete
                             </button>
-                            {{-- <a href="{{ route('role.show', $role->id) }}"
+                            <a href="{{ route('role.show', $role->id) }}"
                                 class="font-medium text-green-600 dark:text-green-500 hover:underline">
                                 Show
-                            </a> --}}
+                            </a>
                         </td>
                     </tr>
                 @endforeach

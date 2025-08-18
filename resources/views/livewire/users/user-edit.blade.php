@@ -45,6 +45,11 @@
             <flux:input wire:model="password" label="Password" type="password" placeholder="Password" />
             <flux:input wire:model="confirm_password" label="Confirm Password" type="password"
                 placeholder="Confirm Password" />
+            <flux:checkbox.group wire:model="roles" label="Roles">
+                @foreach ($allRoles as $role)
+                    <flux:checkbox label="{{ $role->name }}" value="{{ $role->name }}" />
+                @endforeach
+            </flux:checkbox.group>
 
             <flux:button type="submit" variant="primary">Primary</flux:button>
         </form>
